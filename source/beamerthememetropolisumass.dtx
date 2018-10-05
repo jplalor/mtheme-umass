@@ -1,4 +1,6 @@
 % \iffalse meta-comment -------------------------------------------------------
+% Updates by John Lalor for UMass Amherst - October 2018
+%
 % Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
 % contributors can be found at
 %
@@ -12,8 +14,8 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthememetropolis}
-  [2017/01/23 v1.2 Metropolis Beamer theme]
+\ProvidesPackage{beamerthememetropolisumass}
+  [2018/10/05 v1.3 Metropolis UMassBeamer theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -44,12 +46,12 @@
 % Most options are passed off to the component sub-packages.
 %
 %    \begin{macrocode}
-\pgfkeys{/metropolis/.cd,
+\pgfkeys{/metropolisumass/.cd,
   .search also={
-    /metropolis/inner,
-    /metropolis/outer,
-    /metropolis/color,
-    /metropolis/font,
+    /metropolisumass/inner,
+    /metropolisumass/outer,
+    /metropolisumass/color,
+    /metropolisumass/font,
   }
 }
 %    \end{macrocode}
@@ -58,27 +60,27 @@
 %    Controls the formatting of the text on standout ``plain'' frames.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/titleformat plain/.cd,
+  /metropolisumass/titleformat plain/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@plaintitleformat\@empty%
+      \let\metropolisumass@plaintitleformat\@empty%
       \setbeamerfont{standout}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@plaintitleformat\@empty%
+      \let\metropolisumass@plaintitleformat\@empty%
       \setbeamerfont{standout}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@plaintitleformat\MakeLowercase%
+      \let\metropolisumass@plaintitleformat\MakeLowercase%
       \setbeamerfont{standout}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat plain=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@plaintitleformat\MakeUppercase%
+      \let\metropolisumass@plaintitleformat\MakeUppercase%
       \setbeamerfont{standout}{shape=\normalfont}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat plain=allcaps can lead to problems%
       }
     },
@@ -91,7 +93,7 @@
 %    titles, and the text on standout ``plain'' frames.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/titleformat/.code=\pgfkeysalso{
+  /metropolisumass/titleformat/.code=\pgfkeysalso{
       font/titleformat title=#1,
       font/titleformat subtitle=#1,
       font/titleformat section=#1,
@@ -106,7 +108,7 @@
 % deprecated option names as aliases to the corresponding |key=value| options.
 %
 %    \begin{macrocode}
-\pgfkeys{/metropolis/.cd,
+\pgfkeys{/metropolisumass/.cd,
   usetitleprogressbar/.code=\pgfkeysalso{outer/progressbar=frametitle},
   noslidenumbers/.code=\pgfkeysalso{outer/numbering=none},
   usetotalslideindicator/.code=\pgfkeysalso{outer/numbering=fraction},
@@ -119,8 +121,8 @@
 % Set default values for options.
 %
 %    \begin{macrocode}
-\newcommand{\metropolis@setdefaults}{
-  \pgfkeys{/metropolis/.cd,
+\newcommand{\metropolisumass@setdefaults}{
+  \pgfkeys{/metropolisumass/.cd,
     titleformat plain=regular,
   }
 }
@@ -142,10 +144,10 @@
 % the theme.
 %
 %    \begin{macrocode}
-\useinnertheme{metropolis}
-\useoutertheme{metropolis}
-\usecolortheme{metropolis}
-\usefonttheme{metropolis}
+\useinnertheme{metropolisumass}
+\useoutertheme{metropolisumass}
+\usecolortheme{metropolisumass}
+\usefonttheme{metropolisumass}
 %    \end{macrocode}
 %
 % The |tol| theme for |pgfplots| is only loaded if |pgfplots| is used.
@@ -168,7 +170,7 @@
 % \begin{macro}{\metroset}
 %    Allows the user to change options midway through a presentation.
 %    \begin{macrocode}
-\newcommand{\metroset}[1]{\pgfkeys{/metropolis/.cd,#1}}
+\newcommand{\metroset}[1]{\pgfkeys{/metropolisumass/.cd,#1}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -177,14 +179,14 @@
 %   or a few words. The format of the text can be set with the
 %   |titleformat plain| option.
 %    \begin{macrocode}
-\def\metropolis@plaintitleformat#1{#1}
+\def\metropolisumass@plaintitleformat#1{#1}
 \newcommand{\plain}[2][]{%
-  \PackageWarning{beamerthememetropolis}{%
+  \PackageWarning{beamerthememetropolisumass}{%
     The syntax `\plain' may be deprecated in a future version of Metropolis.
     Please use a frame with [standout] instead.
   }
   \begin{frame}[standout]{#1}
-    \metropolis@plaintitleformat{#2}
+    \metropolisumass@plaintitleformat{#2}
   \end{frame}
 }
 %    \end{macrocode}
@@ -201,8 +203,8 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
-\metropolis@setdefaults
-\ProcessPgfOptions{/metropolis}
+\metropolisumass@setdefaults
+\ProcessPgfOptions{/metropolisumass}
 %    \end{macrocode}
 %
 % \iffalse

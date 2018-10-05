@@ -1,4 +1,6 @@
 % \iffalse meta-comment -------------------------------------------------------
+% Updates by John Lalor for UMass Amherst - October 2018
+%
 % Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
 % contributors can be found at
 %
@@ -12,7 +14,7 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerinnerthememetropolis}[2017/01/23 Metropolis inner theme]
+\ProvidesPackage{beamerinnerthememetropolisumass}[2018/10/05 Metropolis UMass inner theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -54,12 +56,12 @@
 %    Optionally add a slide marking the beginning of each section.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/inner/sectionpage/.cd,
+  /metropolisumass/inner/sectionpage/.cd,
     .is choice,
-    none/.code=\metropolis@disablesectionpage,
-    simple/.code={\metropolis@enablesectionpage
+    none/.code=\metropolisumass@disablesectionpage,
+    simple/.code={\metropolisumass@enablesectionpage
                   \setbeamertemplate{section page}[simple]},
-    progressbar/.code={\metropolis@enablesectionpage
+    progressbar/.code={\metropolisumass@enablesectionpage
                        \setbeamertemplate{section page}[progressbar]},
 }
 %    \end{macrocode}
@@ -69,12 +71,12 @@
 %    Optionally add a slide marking the beginning of each subsection.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/inner/subsectionpage/.cd,
+  /metropolisumass/inner/subsectionpage/.cd,
     .is choice,
-    none/.code=\metropolis@disablesubsectionpage,
-    simple/.code={\metropolis@enablesubsectionpage
+    none/.code=\metropolisumass@disablesubsectionpage,
+    simple/.code={\metropolisumass@enablesubsectionpage
                   \setbeamertemplate{section page}[simple]},
-    progressbar/.code={\metropolis@enablesubsectionpage
+    progressbar/.code={\metropolisumass@enablesubsectionpage
                        \setbeamertemplate{section page}[progressbar]},
 }
 %    \end{macrocode}
@@ -83,8 +85,8 @@
 % \begin{macro}{\metropolis@inner@setdefaults}
 % Set default values for inner theme options.
 %    \begin{macrocode}
-\newcommand{\metropolis@inner@setdefaults}{
-  \pgfkeys{/metropolis/inner/.cd,
+\newcommand{\metropolisumass@inner@setdefaults}{
+  \pgfkeys{/metropolisumass/inner/.cd,
     sectionpage=progressbar,
     subsectionpage=none
   }
@@ -196,12 +198,12 @@
 %   Template to set the title graphic in a zero-height box. (It won't
 %   change the position of other elements.)
 %    \begin{macrocode}
-\newlength{\metropolis@titleseparator@linewidth}
-\setlength{\metropolis@titleseparator@linewidth}{0.4pt}
+\newlength{\metropolisumass@titleseparator@linewidth}
+\setlength{\metropolisumass@titleseparator@linewidth}{0.4pt}
 \setbeamertemplate{title separator}{
   \tikzexternaldisable%
   \begin{tikzpicture}
-    \fill[fg] (0,0) rectangle (\textwidth, \metropolis@titleseparator@linewidth);
+    \fill[fg] (0,0) rectangle (\textwidth, \metropolisumass@titleseparator@linewidth);
   \end{tikzpicture}%
   \tikzexternalenable%
   \par%
@@ -281,12 +283,12 @@
   \par
   \vspace{\baselineskip}
 }
-\newcommand{\metropolis@disablesectionpage}{
+\newcommand{\metropolisumass@disablesectionpage}{
   \AtBeginSection{
     % intentionally empty
   }
 }
-\newcommand{\metropolis@enablesectionpage}{
+\newcommand{\metropolisumass@enablesectionpage}{
   \AtBeginSection{
     \ifbeamer@inframe
       \sectionpage
@@ -307,12 +309,12 @@
 \setbeamertemplate{subsection page}{%
   \usebeamertemplate*{section page}
 }
-\newcommand{\metropolis@disablesubsectionpage}{
+\newcommand{\metropolisumass@disablesubsectionpage}{
   \AtBeginSubsection{
     % intentionally empty
   }
 }
-\newcommand{\metropolis@enablesubsectionpage}{
+\newcommand{\metropolisumass@enablesubsectionpage}{
   \AtBeginSubsection{
     \ifbeamer@inframe
       \subsectionpage
@@ -331,17 +333,17 @@
 %   |progress bar in head/foot|.
 %
 %    \begin{macrocode}
-\newlength{\metropolis@progressonsectionpage}
-\newlength{\metropolis@progressonsectionpage@linewidth}
-\setlength{\metropolis@progressonsectionpage@linewidth}{0.4pt}
+\newlength{\metropolisumass@progressonsectionpage}
+\newlength{\metropolisumass@progressonsectionpage@linewidth}
+\setlength{\metropolisumass@progressonsectionpage@linewidth}{0.4pt}
 \setbeamertemplate{progress bar in section page}{
-  \setlength{\metropolis@progressonsectionpage}{%
+  \setlength{\metropolisumass@progressonsectionpage}{%
     \textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
   }%
   \tikzexternaldisable%
   \begin{tikzpicture}
-    \fill[bg] (0,0) rectangle (\textwidth, \metropolis@progressonsectionpage@linewidth);
-    \fill[fg] (0,0) rectangle (\metropolis@progressonsectionpage, \metropolis@progressonsectionpage@linewidth);
+    \fill[bg] (0,0) rectangle (\textwidth, \metropolisumass@progressonsectionpage@linewidth);
+    \fill[fg] (0,0) rectangle (\metropolisumass@progressonsectionpage, \metropolisumass@progressonsectionpage@linewidth);
   \end{tikzpicture}%
   \tikzexternalenable%
 }
@@ -376,14 +378,14 @@
 %    the auxiliary macro |\metropolis@block| to define all three templates.
 %
 %    \begin{macrocode}
-\newlength{\metropolis@blocksep}
-\newlength{\metropolis@blockadjust}
-\setlength{\metropolis@blocksep}{0.75ex}
-\setlength{\metropolis@blockadjust}{0.25ex}
-\providecommand{\metropolis@strut}{%
+\newlength{\metropolisumass@blocksep}
+\newlength{\metropolisumass@blockadjust}
+\setlength{\metropolisumass@blocksep}{0.75ex}
+\setlength{\metropolisumass@blockadjust}{0.25ex}
+\providecommand{\metropolisumass@strut}{%
   \vphantom{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()}%
 }
-\newcommand{\metropolis@block}[1]{
+\newcommand{\metropolisumass@block}[1]{
   \par\vskip\medskipamount%
   \setlength{\parskip}{0pt}
 %    \end{macrocode}
@@ -421,9 +423,9 @@
 %   \begin{macrocode}
   {%
     \begin{beamercolorbox}[
-      sep=\dimexpr\metropolis@blocksep-\metropolis@blockadjust\relax,
-      leftskip=\metropolis@blockadjust,
-      rightskip=\dimexpr\metropolis@blockadjust plus 4em\relax
+      sep=\dimexpr\metropolisumass@blocksep-\metropolisumass@blockadjust\relax,
+      leftskip=\metropolisumass@blockadjust,
+      rightskip=\dimexpr\metropolisumass@blockadjust plus 4em\relax
     ]{block title#1}%
   }}%
 %   \end{macrocode}
@@ -435,9 +437,9 @@
 %
 %   \begin{macrocode}
       \usebeamerfont*{block title#1}%
-      \metropolis@strut%
+      \metropolisumass@strut%
       \insertblocktitle%
-      \metropolis@strut%
+      \metropolisumass@strut%
   \end{beamercolorbox}%
 %   \end{macrocode}
 %
@@ -451,11 +453,11 @@
   \ifbeamercolorempty[bg]{block body}{%
     \begin{beamercolorbox}[vmode]{block body#1}%
   }{%
-    \begin{beamercolorbox}[sep=\metropolis@blocksep, vmode]{block body#1}%
-    \vspace{-\metropolis@parskip}
+    \begin{beamercolorbox}[sep=\metropolisumass@blocksep, vmode]{block body#1}%
+    \vspace{-\metropolisumass@parskip}
   }}%
       \usebeamerfont{block body#1}%
-      \setlength{\parskip}{\metropolis@parskip}%
+      \setlength{\parskip}{\metropolisumass@parskip}%
 }
 %    \end{macrocode}
 %
@@ -463,9 +465,9 @@
 %    we define the block beamer templates using this macro.
 %
 %    \begin{macrocode}
-\setbeamertemplate{block begin}{\metropolis@block{}}
-\setbeamertemplate{block alerted begin}{\metropolis@block{ alerted}}
-\setbeamertemplate{block example begin}{\metropolis@block{ example}}
+\setbeamertemplate{block begin}{\metropolisumass@block{}}
+\setbeamertemplate{block alerted begin}{\metropolisumass@block{ alerted}}
+\setbeamertemplate{block example begin}{\metropolisumass@block{ example}}
 \setbeamertemplate{block end}{\end{beamercolorbox}\vspace*{0.2ex}}
 \setbeamertemplate{block alerted end}{\end{beamercolorbox}\vspace*{0.2ex}}
 \setbeamertemplate{block example end}{\end{beamercolorbox}\vspace*{0.2ex}}
@@ -500,9 +502,9 @@
 % \subsubsection{Text and spacing settings}
 %
 %    \begin{macrocode}
-\newlength{\metropolis@parskip}
-\setlength{\metropolis@parskip}{0.5em}
-\setlength{\parskip}{\metropolis@parskip}
+\newlength{\metropolisumass@parskip}
+\setlength{\metropolisumass@parskip}{0.5em}
+\setlength{\parskip}{\metropolisumass@parskip}
 \linespread{1.15}
 %    \end{macrocode}
 %
@@ -539,9 +541,9 @@
 %     change the colors and set frame options.
 %
 %    \begin{macrocode}
-\providebool{metropolis@standout}
+\providebool{metropolisumass@standout}
 \define@key{beamerframe}{standout}[true]{%
-  \booltrue{metropolis@standout}
+  \booltrue{metropolisumass@standout}
   \begingroup
     \setkeys{beamerframe}{c}
     \setkeys{beamerframe}{noframenumbering}
@@ -572,9 +574,9 @@
 %
 %    \begin{macrocode}
   \pretocmd{\beamer@reseteecodes}{%
-    \ifbool{metropolis@standout}{
+    \ifbool{metropolisumass@standout}{
       \endgroup
-      \boolfalse{metropolis@standout}
+      \boolfalse{metropolisumass@standout}
     }{}
   }{}{}
 %    \end{macrocode}
@@ -585,7 +587,7 @@
 %
 %    \begin{macrocode}
   \AtBeginEnvironment{beamer@frameslide}{
-    \ifbool{metropolis@standout}{
+    \ifbool{metropolisumass@standout}{
       \centering
       \usebeamerfont{standout}
     }{}
@@ -596,8 +598,8 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
-\metropolis@inner@setdefaults
-\ProcessPgfPackageOptions{/metropolis/inner}
+\metropolisumass@inner@setdefaults
+\ProcessPgfPackageOptions{/metropolisumass/inner}
 %    \end{macrocode}
 %
 % \iffalse

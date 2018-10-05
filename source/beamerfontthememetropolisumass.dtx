@@ -1,4 +1,5 @@
 % \iffalse meta-comment -------------------------------------------------------
+% Updates by John Lalor for UMass Amherst - October 2018
 % Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
 % contributors can be found at
 %
@@ -12,7 +13,7 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerfontthememetropolis}[2017/01/23 Metropolis font theme]
+\ProvidesPackage{beamerfontthememetropolisumass}[2018/10/05 Metropolis UMass font theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -112,7 +113,7 @@
                    BoldItalicFont={Fira Sans Italic OT}]%
                   {Fira Sans Light OT}%
     }{%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Could not find Fira Sans fonts%
       }
     }
@@ -123,7 +124,7 @@
     \iffontsavailable{Fira Mono OT, Fira Mono Bold OT}{%
       \setmonofont[BoldFont={Fira Mono Medium OT}]{Fira Mono OT}%
     }{%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Could not find Fira Mono fonts%
       }
     }
@@ -132,7 +133,7 @@
     \addfontfeature{Numbers={Monospaced}}%
   }
 }{%
-  \PackageWarning{beamerthememetropolis}{%
+  \PackageWarning{beamerthememetropolisumass}{%
     You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts%
   }
 }
@@ -184,27 +185,27 @@
 %    Controls the format of the title.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat title/.cd,
+  /metropolisumass/font/titleformat title/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@titleformat\@empty%
+      \let\metropolisumass@titleformat\@empty%
       \setbeamerfont{title}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@titleformat\@empty%
+      \let\metropolisumass@titleformat\@empty%
       \setbeamerfont{title}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@titleformat\lowercase%
+      \let\metropolisumass@titleformat\lowercase%
       \setbeamerfont{title}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat title=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@titleformat\uppercase%
+      \let\metropolisumass@titleformat\uppercase%
       \setbeamerfont{title}{shape=\normalfont}
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat title=allcaps can lead to problems%
       }
     },
@@ -216,27 +217,27 @@
 %    Control the format of the subtitle.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat subtitle/.cd,
+  /metropolisumass/font/titleformat subtitle/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@subtitleformat\@empty%
+      \let\metropolisumass@subtitleformat\@empty%
       \setbeamerfont{subtitle}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@subtitleformat\@empty%
+      \let\metropolisumass@subtitleformat\@empty%
       \setbeamerfont{subtitle}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@subtitleformat\lowercase%
+      \let\metropolisumass@subtitleformat\lowercase%
       \setbeamerfont{subtitle}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat subtitle=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@subtitleformat\uppercase%
+      \let\metropolisumass@subtitleformat\uppercase%
       \setbeamerfont{subtitle}{shape=\normalfont}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat subtitle=allcaps can lead to problems%
       }
     },
@@ -248,27 +249,27 @@
 %    Controls the format of the section title.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat section/.cd,
+  /metropolisumass/font/titleformat section/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@sectiontitleformat\@empty%
+      \let\metropolisumass@sectiontitleformat\@empty%
       \setbeamerfont{section title}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@sectiontitleformat\@empty%
+      \let\metropolisumass@sectiontitleformat\@empty%
       \setbeamerfont{section title}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@sectiontitleformat\MakeLowercase%
+      \let\metropolisumass@sectiontitleformat\MakeLowercase%
       \setbeamerfont{section title}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat section=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@sectiontitleformat\MakeUppercase%
+      \let\metropolisumass@sectiontitleformat\MakeUppercase%
       \setbeamerfont{section title}{shape=\normalfont}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat section=allcaps can lead to problems%
       }
     },
@@ -280,27 +281,27 @@
 %    Control the format of the frame title.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/titleformat frame/.cd,
+  /metropolisumass/font/titleformat frame/.cd,
     .is choice,
     regular/.code={%
-      \let\metropolis@frametitleformat\@empty%
+      \let\metropolisumass@frametitleformat\@empty%
       \setbeamerfont{frametitle}{shape=\normalfont}%
     },
     smallcaps/.code={%
-      \let\metropolis@frametitleformat\@empty%
+      \let\metropolisumass@frametitleformat\@empty%
       \setbeamerfont{frametitle}{shape=\scshape}%
     },
     allsmallcaps/.code={%
-      \let\metropolis@frametitleformat\MakeLowercase%
+      \let\metropolisumass@frametitleformat\MakeLowercase%
       \setbeamerfont{frametitle}{shape=\scshape}%
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat frame=allsmallcaps can lead to problems%
       }
     },
     allcaps/.code={%
-      \let\metropolis@frametitleformat\MakeUppercase%
+      \let\metropolisumass@frametitleformat\MakeUppercase%
       \setbeamerfont{frametitle}{shape=\normalfont}
-      \PackageWarning{beamerthememetropolis}{%
+      \PackageWarning{beamerthememetropolisumass}{%
         Be aware that titleformat frame=allcaps can lead to problems%
       }
     },
@@ -313,7 +314,7 @@
 %    declaration, where \LaTeX{} automatically removes all spaces.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/font/.cd,
+  /metropolisumass/font/.cd,
   titleformattitle/.code=\pgfkeysalso{titleformat title=#1},
   titleformatsubtitle/.code=\pgfkeysalso{titleformat subtitle=#1},
   titleformatsection/.code=\pgfkeysalso{titleformat section=#1},
@@ -325,8 +326,8 @@
 % \begin{macro}{\metropolis@font@setdefaults}
 %    Sets default values for font theme options.
 %    \begin{macrocode}
-\newcommand{\metropolis@font@setdefaults}{
-  \pgfkeys{/metropolis/font/.cd,
+\newcommand{\metropolisumass@font@setdefaults}{
+  \pgfkeys{/metropolisumass/font/.cd,
     titleformat title=regular,
     titleformat subtitle=regular,
     titleformat section=regular,
@@ -339,10 +340,10 @@
 % We first define hooks to change the case format of the titles.
 %
 %    \begin{macrocode}
-\def\metropolis@titleformat#1{#1}
-\def\metropolis@subtitleformat#1{#1}
-\def\metropolis@sectiontitleformat#1{#1}
-\def\metropolis@frametitleformat#1{#1}
+\def\metropolisumass@titleformat#1{#1}
+\def\metropolisumass@subtitleformat#1{#1}
+\def\metropolisumass@sectiontitleformat#1{#1}
+\def\metropolisumass@frametitleformat#1{#1}
 %    \end{macrocode}
 %
 % To make the uppercase and lowercase macros work in the title, subtitle, etc.,
@@ -354,62 +355,62 @@
 %    \begin{macrocode}
 \patchcmd{\beamer@title}%
   {\def\inserttitle{#2}}%
-  {\def\inserttitle{\metropolis@titleformat{#2}}}%
+  {\def\inserttitle{\metropolisumass@titleformat{#2}}}%
   {}%
-  {\PackageError{beamerfontthememetropolis}{Patching title failed}\@ehc}
+  {\PackageError{beamerfontthememetropolisumass}{Patching title failed}\@ehc}
 \patchcmd{\beamer@subtitle}%
   {\def\insertsubtitle{#2}}%
-  {\def\insertsubtitle{\metropolis@subtitleformat{#2}}}%
+  {\def\insertsubtitle{\metropolisumass@subtitleformat{#2}}}%
   {}%
-  {\PackageError{beamerfontthememetropolis}{Patching subtitle failed}\@ehc}
+  {\PackageError{beamerfontthememetropolisumass}{Patching subtitle failed}\@ehc}
 \patchcmd{\sectionentry}
   {\def\insertsectionhead{#2}}
-  {\def\insertsectionhead{\metropolis@sectiontitleformat{#2}}}
+  {\def\insertsectionhead{\metropolisumass@sectiontitleformat{#2}}}
   {}
-  {\PackageError{beamerfontthememetropolis}{Patching section title failed}\@ehc}
+  {\PackageError{beamerfontthememetropolisumass}{Patching section title failed}\@ehc}
 \@tempswafalse
 \patchcmd{\beamer@section}
   {\edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{\unexpanded{#1}}}}
   {\edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
-    \noexpand\metropolis@sectiontitleformat{\unexpanded{#1}}}}}
+    \noexpand\metropolisumass@sectiontitleformat{\unexpanded{#1}}}}}
   {\@tempswatrue}
   {}
 \patchcmd{\beamer@section}
   {\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
   {\def\insertsectionhead{\hyperlink{Navigation\the\c@page}{%
-    \metropolis@sectiontitleformat{#1}}}}
+    \metropolisumass@sectiontitleformat{#1}}}}
   {\@tempswatrue}
   {}
 \patchcmd{\beamer@section}
   {\protected@edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{#1}}}
   {\protected@edef\insertsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
-    \noexpand\metropolis@sectiontitleformat{#1}}}}
+    \noexpand\metropolisumass@sectiontitleformat{#1}}}}
   {\@tempswatrue}
   {}
 \if@tempswa\else
-  \PackageError{beamerfontthememetropolis}{Patching section title failed}\@ehc
+  \PackageError{beamerfontthememetropolisumass}{Patching section title failed}\@ehc
 \fi
 \@tempswafalse
 \patchcmd{\beamer@subsection}
   {\edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{\unexpanded{#1}}}}
   {\edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
-    \noexpand\metropolis@sectiontitleformat{\unexpanded{#1}}}}}
+    \noexpand\metropolisumass@sectiontitleformat{\unexpanded{#1}}}}}
   {\@tempswatrue}
   {}
 \patchcmd{\beamer@subsection}
   {\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{#1}}}
   {\def\insertsubsectionhead{\hyperlink{Navigation\the\c@page}{%
-    \metropolis@sectiontitleformat{#1}}}}
+    \metropolisumass@sectiontitleformat{#1}}}}
   {\@tempswatrue}
   {}
 \patchcmd{\beamer@subsection}
   {\protected@edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{#1}}}
   {\protected@edef\insertsubsectionhead{\noexpand\hyperlink{Navigation\the\c@page}{%
-    \noexpand\metropolis@sectiontitleformat{#1}}}}
+    \noexpand\metropolisumass@sectiontitleformat{#1}}}}
   {\@tempswatrue}
   {}
 \if@tempswa\else
-  \PackageError{beamerfontthememetropolis}{Patching section title failed}\@ehc
+  \PackageError{beamerfontthememetropolisumass}{Patching section title failed}\@ehc
 \fi
 %    \end{macrocode}
 %
@@ -425,14 +426,14 @@
     \gdef\beamer@shortframetitle{#1}%
     }}
   {{%
-      \gdef\insertframetitle{{\metropolis@frametitleformat{#2}\ifnum%
+      \gdef\insertframetitle{{\metropolisumass@frametitleformat{#2}\ifnum%
       \beamer@autobreakcount>0\relax{}\space%
       \usebeamertemplate*{frametitle continuation}\fi}}%
     \gdef\beamer@frametitle{#2}%
     \gdef\beamer@shortframetitle{#1}%
     }}
   {}
-  {\PackageError{beamerfontthememetropolis}{Patching frame title failed}\@ehc}
+  {\PackageError{beamerfontthememetropolisumass}{Patching frame title failed}\@ehc}
 %    \end{macrocode}
 %
 %
@@ -440,8 +441,8 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
-\metropolis@font@setdefaults
-\ProcessPgfPackageOptions{/metropolis/font}
+\metropolisumass@font@setdefaults
+\ProcessPgfPackageOptions{/metropolisumass/font}
 %    \end{macrocode}
 % \iffalse
 %</package>

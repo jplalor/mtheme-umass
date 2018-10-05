@@ -1,4 +1,6 @@
 % \iffalse meta-comment -------------------------------------------------------
+% Updates by John Lalor for UMass Amherst - October 2018
+%
 % Copyright 2015 Matthias Vogelgesang and the LaTeX community. A full list of
 % contributors can be found at
 %
@@ -12,7 +14,7 @@
 % \iffalse
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamercolorthememetropolis}[2017/01/23 Metropolis color theme]
+\ProvidesPackage{beamercolorthememetropolisumass}[2018/10/05 Metropolis UMass color theme]
 %</package>
 % \fi
 % \CheckSum{0}
@@ -39,10 +41,10 @@
 %    |theorem| and |example|.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/color/block/.cd,
+  /metropolisumass/color/block/.cd,
     .is choice,
-    transparent/.code=\metropolis@block@transparent,
-    fill/.code=\metropolis@block@fill,
+    transparent/.code=\metropolisumass@block@transparent,
+    fill/.code=\metropolisumass@block@fill,
 }
 %    \end{macrocode}
 % \end{macro}
@@ -52,10 +54,10 @@
 %    of the reverse.
 %    \begin{macrocode}
 \pgfkeys{
-  /metropolis/color/background/.cd,
+  /metropolisumass/color/background/.cd,
     .is choice,
-    dark/.code=\metropolis@colors@dark,
-    light/.code=\metropolis@colors@light,
+    dark/.code=\metropolisumass@colors@dark,
+    light/.code=\metropolisumass@colors@light,
 }
 %    \end{macrocode}
 % \end{macro}
@@ -63,8 +65,8 @@
 % \begin{macro}{\metropolis@color@setdefaults}
 %    Sets default values for color theme options.
 %    \begin{macrocode}
-\newcommand{\metropolis@color@setdefaults}{
-  \pgfkeys{/metropolis/color/.cd,
+\newcommand{\metropolisumass@color@setdefaults}{
+  \pgfkeys{/metropolisumass/color/.cd,
     background=light,
     block=transparent,
   }
@@ -81,6 +83,12 @@
 \definecolor{mDarkTeal}{HTML}{23373b}
 \definecolor{mLightBrown}{HTML}{EB811B}
 \definecolor{mLightGreen}{HTML}{14B03D}
+% UMass colors
+\definecolor{mMaroon}{HTML}{881c1c}
+\definecolor{mBlack}{HTML}{000000}
+\definecolor{mWhite}{HTML}{ffffff}
+\definecolor{mLightBrownUMass}{HTML}{94795d}
+\definecolor{mLightGreenUMass}{HTML}{a89968}
 %    \end{macrocode}
 %
 %
@@ -91,24 +99,24 @@
 % |alerted text|, and |example text|.
 %
 %    \begin{macrocode}
-\newcommand{\metropolis@colors@dark}{
+\newcommand{\metropolisumass@colors@dark}{
   \setbeamercolor{normal text}{%
     fg=black!2,
-    bg=mDarkTeal
+    bg=mMaroon
   }
   \usebeamercolor[fg]{normal text}
 }
-\newcommand{\metropolis@colors@light}{
+\newcommand{\metropolisumass@colors@light}{
   \setbeamercolor{normal text}{%
-    fg=mDarkTeal,
+    fg=mMaroon,
     bg=black!2
   }
 }
 \setbeamercolor{alerted text}{%
-  fg=mLightBrown
+  fg=mLightBrownUMass
 }
 \setbeamercolor{example text}{%
-  fg=mLightGreen
+  fg=mLightGreenUMass
 }
 %    \end{macrocode}
 %
@@ -179,7 +187,7 @@
 % if changing colors mid-presentation.
 %
 %    \begin{macrocode}
-\newcommand{\metropolis@block@transparent}{
+\newcommand{\metropolisumass@block@transparent}{
   \setbeamercolor{block title}{%
     use=normal text,
     fg=normal text.fg,
@@ -189,7 +197,7 @@
     bg=
   }
 }
-\newcommand{\metropolis@block@fill}{
+\newcommand{\metropolisumass@block@fill}{
   \setbeamercolor{block title}{%
     use=normal text,
     fg=normal text.fg,
@@ -237,8 +245,8 @@
 % \subsubsection{Process package options}
 %
 %    \begin{macrocode}
-\metropolis@color@setdefaults
-\ProcessPgfPackageOptions{/metropolis/color}
+\metropolisumass@color@setdefaults
+\ProcessPgfPackageOptions{/metropolisumass/color}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
